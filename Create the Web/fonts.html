@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Introducing Adobe Edge Web Fonts.">
+<meta name="author" content="Kevin Hoyt">
+
+<title>Adobe Edge Web Fonts</title>
+
+<link rel="stylesheet" href="../revealjs/css/main.css">
+<link rel="stylesheet" href="style/blue-waves.css">
+<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+<link rel="stylesheet" href="../style/custom.css">
+
+<style type="text/css">
+@font-face {
+    font-family: 'Source Sans';
+    src: url( '../font/source-sans-pro.eot' );
+    src: url( '../font/source-sans-pro.eot?#iefix' ) format( 'embedded-opentype' ),
+         url( '../font/source-sans-pro.woff' ) format( 'woff' ),
+         url( '../font/source-sans-pro.ttf' ) format( 'truetype' ),
+         url( '../font/source-sans-pro.svg#source_sans_proregular' ) format( 'svg' );
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Code';
+    src: url( '../font/source-code-pro.eot' );
+    src: url( '../font/source-code-pro.eot?#iefix' ) format( 'embedded-opentype' ),
+         url( '../font/source-code-pro.woff' ) format( 'woff' ),
+         url( '../font/source-code-pro.ttf' ) format( 'truetype' ),
+         url( '../font/source-code-pro.svg#source_code_proregular' ) format( 'svg' );
+    font-weight: normal;
+    font-style: normal;
+}
+
+html.intro body {
+	background: url( 'img/blue-background.png' );
+	background-position: center;
+	background-size: 100% 100%;
+}
+
+html.black body {
+	background: none;	
+	background-color: #000;
+}
+
+html.fork img {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		text-shadow: 0px 0px 0px rgba( 251, 176, 52, 0.80 );		
+	}
+	
+	50% {
+		text-shadow: 0px 0px 50px rgba( 251, 176, 52, 0.80 );	
+	}
+	
+	100% {
+		text-shadow: 0px 0px 0px rgba( 251, 176, 52, 0.80 );		
+	}
+}
+</style>
+
+</head>
+<body>
+
+<div class="reveal">
+	<div class="slides">
+    	<section data-state="intro">
+        	<h1 style="margin-top: 200px; text-transform: uppercase; border-bottom: solid; padding-bottom: 15px;">Create the Web</h1>
+            <h2 style="text-transform: none; font-size: 56px;">html.adobe.com</h2>
+        </section>
+    	<section>
+            <img src="img/typekit.png" width="256" height="250" style="margin-left: 40px; margin-top: 160px; float: left;">
+            <div style="float: left; text-align: left; width: 450px; margin-top: 160px; margin-left: 60px;">
+                <p style="margin-top: 25px; font-size: 28px; color: rgb( 162, 198, 70 );">Typekit</p>
+                <p style="font-size: 46px;">Use High-quality Fonts on the Web</p>
+            </div>
+        </section>        
+        <section>
+        	<section>
+            	<img src="img/mosaic.png" width="800" height="396" style="margin-top: 100px;">
+            </section>
+            <section>
+            	<p style="margin-top: 190px; font-size: 152px;">&lt;font&gt;</p>
+            </section>
+            <section style="font-size: 48px;">
+            	<pre style="margin-top: 150px;"><code contenteditable>body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-variant: small-caps;
+  font-style: italic;
+  line-height: 150%;
+}</code></pre>
+            </section>
+            <section>
+            	<h2 style="text-transform: none; margin-top: 20px;">Downloadable Fonts</h2> 
+            	<img src="img/seed-conference.png" width="800" height="626" style="margin-top: 60px;">
+            </section>
+            <section>
+            	<h2 style="text-transform: none; margin-top: 20px;">Typekit is Born</h2> 
+            	<img src="img/typekit-website.png" width="800" height="639" style="margin-top: 50px;">
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<a href="http://lostworldsfairs.com/eldorado" target="_blank">
+            	<img src="img/lost-worlds-fair.png" width="700" height="463" style="margin-top: 65px;">
+            	</a>
+            </section>
+            <section>
+            	<a href="http://pitchfork.com/peopleslist" target="_blank">
+            	<img src="img/peoples-list.png" width="700" height="463" style="margin-top: 65px;">
+            	</a>
+            </section>
+            <section>
+            	<a href="http://diehlgroup.com" target="_blank">
+            	<img src="img/architectural.png" width="700" height="463" style="margin-top: 65px;">
+            	</a>            
+            </section>
+            <section>
+            	<a href="http://www.nytimes.com/best-sellers-books" target="_blank">
+            	<img src="img/new-york-times.png" width="700" height="463" style="margin-top: 65px;">
+            	</a>            
+            </section>
+            <section>
+            	<a href="http://www.newyorker.com/online/blogs/books/2012/09/street-of-the-iron-poet-henri-cole-paris-dairy.html" target="_blank">
+            	<img src="img/new-yorker.png" width="700" height="463" style="margin-top: 65px;">
+            	</a>            
+            </section>
+            <section>
+            	<a href="http://www.jetblue.com" target="_blank">
+            	<img src="img/jet-blue.png" width="700" height="463" style="margin-top: 65px;">
+            	</a>            
+            </section>
+        </section>
+        <section>
+        	<section>
+				<div style="margin-top: 130px; margin-left: 55px;">
+                	<div style="float: left; font-size: 48px; margin-top: 40px;">
+                		<div style="color: rgb( 193, 216, 47 );">1,500,000</div>
+                    	<div style="margin-top: 30px;">websites</div>
+                        <div style="margin-top: 100px; color: rgb( 193, 216, 47 );">8 billion</div>
+                    	<div style="margin-top: 30px;">views</div>
+                	</div>
+                    <img src="img/adoption.png" width="400" height="338">
+                </div>            
+				
+            </section>
+            <section>
+            	<div style="margin-top: 100px;">
+                    <div style="float: right; font-size: 38px; padding-right: 10px;"><span style="color: rgb( 193, 216, 47 );">53</span> foundries</div>                
+                	<div style="float: left; font-size: 38px; padding-left: 10px;"><span style="color: rgb( 193, 216, 47 );">1,253</span> font families</div>
+                </div>
+            	<img src="img/foundries.png" width="800" height="373" style="margin-top: 40px;">
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<img src="img/google.png" width="800" height="215" style="margin-top: 170px;">
+            </section>
+            <section>
+        		<div style="float: left; width: 296px; margin-top: 180px;">
+                	<img src="img/edge-web-fonts.png" width="259" height="250">
+                </div>
+                <div style="float: left; width: 460px; text-align: left; padding-left: 50px;">
+                	<p style="font-size: 32px; margin-top: 110px;">500+ open source and free fonts</p>
+                    <p style="font-size: 32px; margin-top: 50px;">Open URLs for each family</p>
+                	<p style="font-size: 32px; margin-top: 50px;">Curated by Adobe, with technical improvements and integration</p>
+                    <p style="font-size: 32px; margin-top: 50px;">Served by Typekit</p>
+                </div>            
+            </section>
+            <section>
+            	<h2 style="text-transform: none; margin-top: 20px;">Adobe Originals</h2>
+            	<img src="img/originals.png" width="800" height="450" style="margin-top: 40px;">
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<p style="margin-top: 220px; font-size: 84px; font-family: 'Source Sans';">Source Sans Pro</p>
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-top: 22px; font-family: 'Courier New', Courier, monospace;">github.com/adobe</h2>            	
+                <a href="https://github.com/adobe/Source-Sans-Pro" target="_blank">
+                <img src="img/source-sans-github.png" width="800" height="570" style="margin-top: 40px;">
+            	</a>
+            </section>
+        	<section>
+            	<p style="margin-top: 140px; font-size: 84px; font-family: 'Source Sans';">Source Sans Pro</p>
+            	<p style="margin-top: 50px; font-size: 84px; font-family: 'Source Code';">Source Code Pro</p>
+            </section>  
+            <section>
+            	<h2 style="text-transform: none; margin-top: 22px; font-family: 'Source Code';">Source Code Pro</h2>
+            	<p style="font-family: 'Source Code'; font-size: 72px; margin-top: 65px;">
+                ABCDEFGHIJKLM<br>
+                NOPQRSTUVWXYZ<br>
+                abcdefghijklm<br>
+                nopqrstuvwxyz<br>
+                1234567890
+                </p>
+            </section>                   
+            <section>
+            	<h2 style="text-transform: none; margin-top: 22px; font-family: 'Source Code';">Source Code Pro</h2>
+            	<p style="font-family: 'Source Code'; font-size: 72px; margin-top: 65px; color: rgb( 32, 32, 32 );">
+                ABCDEFGH<span style="color: white;">I</span>JKLM<br>
+                NOPQRSTUVWXYZ<br>
+                abcdefghijk<span style="color: white;">l</span>m<br>
+                nopqrstuvwxyz<br>
+                <span style="color: white;">1</span>234567890
+                </p>
+            </section>   
+            <section>
+            	<h2 style="text-transform: none; margin-top: 22px; font-family: 'Source Code';">Source Code Pro</h2>
+            	<p style="font-family: 'Source Code'; font-size: 72px; margin-top: 65px; color: rgb( 32, 32, 32 );">
+                ABCDEFGHIJKLM<br>
+                N<span style="color: white;">O</span>PQRSTUVWXYZ<br>
+                abcdefghijklm<br>
+                nopqrstuvwxyz<br>
+                123456789<span style="color: white;">0</span>
+                </p>
+            </section>  
+            <section>
+                <h2 style="text-transform: none; margin-top: 22px; font-family: 'Courier New', Courier, monospace;">github.com/adobe</h2>            	
+                <a href="https://github.com/adobe/Source-Code-Pro" target="_blank">
+                <img src="img/source-code-pro-github.png" width="800" height="693" style="margin-top: 40px;">
+            	</a>
+            </section>                                                     
+        </section>
+        <section>
+        	<section>
+	            <div style="width: 256px; float: left; margin-left: 90px; margin-top: 120px;">
+                	<img src="img/typekit.png" width="256" height="250">
+                    <p style="font-size: 38px; margin-top: 20px;">Adobe Typekit</p>
+                </div>
+                <div style="width: 230px; float: left; margin-left: 150px; margin-top: 120px;">
+                	<img src="img/monotype.png" width="230" height="250">
+                    <p style="font-size: 38px; margin-top: 20px;">Monotype Imaging</p>
+                </div>
+            </section>
+            <section>
+            	<img src="img/monotype-samples.png" width="800" height="425" style="margin-top: 80px;">
+            </section>
+        	<section>
+	            <div style="width: 256px; float: left; margin-left: 80px; margin-top: 120px;">
+                	<img src="img/typekit.png" width="256" height="250">
+                    <p style="font-size: 38px; margin-top: 20px;">Adobe Typekit</p>
+                </div>
+                <div style="width: 259px; float: left; margin-left: 150px; margin-top: 120px;">
+                	<img src="img/edge-web-fonts.png" width="259" height="250">
+                    <p style="font-size: 38px; margin-top: 20px;">Adobe Edge Web Fonts</p>
+                </div>
+            </section>            
+        </section>
+    	<section data-state="intro">
+        	<h1 style="margin-top: 200px; text-transform: uppercase; border-bottom: solid; padding-bottom: 15px;">Create the Web</h1>
+            <h2 style="text-transform: none; font-size: 56px;">html.adobe.com</h2>
+        </section>        
+    </div>
+	<aside class="controls">
+		<a class="left" href="#">&#x25C4;</a>
+		<a class="right" href="#">&#x25BA;</a>
+		<a class="up" href="#">&#x25B2;</a>
+		<a class="down" href="#">&#x25BC;</a>
+	</aside>
+	<div class="progress"><span></span></div>    
+</div>
+
+<a href="http://html.adobe.com/events">
+<div class="adobe">
+	<img src="../img/adobe-logo.png" width="30" height="40">
+</div>
+</a>
+
+<script src="../revealjs/lib/js/head.min.js"></script>
+<script src="../revealjs/js/reveal.min.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize( {
+	controls: true,
+	progress: true,
+	history: true,
+	// default/cube/page/concave/linear(2d)
+	transition: Reveal.getQueryHash().transition || 'default', 
+	
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: '../revealjs/lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+		{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: '../revealjs/lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+		{ src: '../revealjs/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+	]
+} );
+</script>
+
+</body>
+</html>

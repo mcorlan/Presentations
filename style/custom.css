@@ -1,0 +1,30 @@
+.adobe {
+	padding-left: 10px; 
+	padding-top: 40px; 
+	padding-bottom: 10px; 
+	position: absolute; 
+	right: 80px; 
+	top: 0px; 
+	background-color: #F00; 
+	width: 40px; 
+	height: 40px;
+}
+
+.social {
+	position: absolute; 
+	bottom: 10px; 
+	text-align: center; 
+	left: 80px; 
+	right: 80px; 
+	color: #519BA2; 
+	font-family: 'League Gothic', Impact, sans-serif; 
+	line-height: 0.9em; 
+	letter-spacing: 0.02em; 
+	font-size: 28px;	
+}
+
+img .png {
+	border: none; 
+	background: none; 
+	box-shadow: none;	
+}

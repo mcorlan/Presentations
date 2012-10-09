@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Keynote presentation around Adobe Edge Tools and Services.">
+<meta name="author" content="Kevin Hoyt">
+
+<title>Create the Web</title>
+
+<link rel="stylesheet" href="../revealjs/css/main.css">
+<link rel="stylesheet" href="style/blue-waves.css">
+<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+<link rel="stylesheet" href="../style/custom.css">
+
+<style type="text/css">
+html.intro body {
+	background: url( 'img/blue-background.png' );
+	background-position: center;
+	background-size: 100% 100%;
+}
+
+html.black body {
+	background: none;	
+	background-color: #000;
+}
+
+html.fork img {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		text-shadow: 0px 0px 0px rgba( 251, 176, 52, 0.80 );		
+	}
+	
+	50% {
+		text-shadow: 0px 0px 50px rgba( 251, 176, 52, 0.80 );	
+	}
+	
+	100% {
+		text-shadow: 0px 0px 0px rgba( 251, 176, 52, 0.80 );		
+	}
+}
+</style>
+
+</head>
+<body>
+
+<div class="reveal">
+	<div class="slides">
+    	<section>
+            <section data-state="intro">
+                <h1 style="margin-top: 200px; text-transform: uppercase; border-bottom: solid; padding-bottom: 15px;">Create the Web</h1>
+                <h2 style="text-transform: none; font-size: 56px;">html.adobe.com</h2>
+            </section> 
+            <section data-state="intro">
+            	<div style="margin-top: 100px; float: left; margin-bottom: 100px;">
+                	<a href="http://www.kevinhoyt.com" target="_blank">
+                	<img src="img/kevin-hoyt.png" width="155" height="155" style="float: left; margin-left: 60px;">
+                    </a>
+                    <div style="float: left; text-transform: uppercase; text-align: left; margin-left: 50px;">
+                    	<div style="font-size: 75px; margin-top: 22px;">Kevin Hoyt</div><br>
+                        <div style="font-size: 38px; margin-top: 20px;">Developer Evangelist</div><br>
+                        <div style="font-size: 38px; margin-top: -10px;">@krhoyt</div>
+                    </div>
+                </div>
+            	<div style="float: left: clear: left;">
+                	<a href="http://terrenceryan.com" target="_blank">
+                	<img src="img/terry-ryan.png" width="155" height="155" style="float: left; margin-left: 60px;">
+                    </a>
+                    <div style="float: left; text-transform: uppercase; text-align: left; margin-left: 50px;">
+                    	<div style="font-size: 75px; margin-top: 22px;">Terry Ryan</div><br>
+                        <div style="font-size: 38px; margin-top: 20px;">Developer Evangelist</div><br>
+                        <div style="font-size: 38px; margin-top: -10px;">@tpryan</div>
+                    </div>
+                </div>                
+            </section>       
+        </section>
+    	<section>
+			<img src="img/html5.png" width="355" height="500" style="margin-top: 50px;">
+        </section>        
+        <section>
+        	<section>
+        		<img src="img/history.png" width="800" height="352" style="margin-top: 120px;">            
+            </section>
+            <section>
+            	<img src="img/current.png" width="800" height="344" style="margin-top: 120px;">
+            </section>
+            <section data-state="black">
+				<img src="img/ccm-logo.png" width="521" height="60" style="margin-top: 5px;">            	
+                <img src="img/ccm-splash.png" width="800" height="627" style="margin-top: -6px;">
+            </section>
+            <section>
+            	<img src="img/w3c.png" width="800" height="244" style="margin-top: 165px;">
+            </section>
+            <section>
+            	<h2 style="text-transform: none; margin-top: 20px; margin-bottom: 50px;">Areas of Focus</h2>
+            	<div style="width: 250px; float: left;">
+                	<img src="img/regions-exclusions.png" width="250" height="179">
+                    <p style="font-size: 32px; margin-top: 20px;">Magazine-style Advanced Layout</p>
+                    <p style="font-size: 28px; margin-top: 30px; color: rgb( 142, 142, 142 );">CSS Regions</p>
+                    <p style="font-size: 28px; color: rgb( 142, 142, 142 );">CSS Exclusions</p>
+                </div>
+                <div style="width: 250px; float: left; margin-left: 34px;">
+                	<img src="img/filters.png" width="250" height="179">
+                    <p style="font-size: 32px; margin-top: 20px;">Cinematic Effects</p>
+                    <p style="font-size: 28px; margin-top: 68px; line-height: 40px; color: rgb( 142, 142, 142 );">CSS Custom Filters</p>
+                </div>
+                <div style="width: 250px; float: left; margin-left: 34px;">
+                	<img src="img/compositing.png" width="250" height="179">
+                    <p style="font-size: 32px; margin-top: 20px;">Advanced Graphical Effects</p>
+                    <p style="font-size: 28px; margin-top: 30px; color: rgb( 142, 142, 142 );">CSS Blending</p>
+                    <p style="font-size: 28px; color: rgb( 142, 142, 142 );">CSS Compositing</p>                    
+                </div>                
+            </section>
+            <section>
+            	<img src="img/ios6.png" width="800" height="166" style="margin-top: 195px;">
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<img src="img/current-mnemonics.png" width="800" height="163" style="margin-top: 195px;">
+            </section>
+            <section>
+            	<h1 style="margin-top: 190px;">The modern web<br>needs<br>modern tools</h1>
+            </section>
+            <section>
+				<h2 style="text-transform: none; margin-top: 20px; margin-bottom: 50px;">Adobe Edge Tools &amp; Services</h2>
+                <img src="img/edge-mnemonics.png" width="800" height="363" style="margin-top: 40px;">            
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-top: 20px;">Adobe Edge Tools &amp; Services</h2>            
+            	<img src="img/mini-edge-mnemonics.png" width="800" height="97" style="margin-top: 70px;">
+                <p style="margin-top: 60px; font-size: 28px;">Optimized for creating mobile-ready web content and apps</p>
+            	<p style="margin-top: 40px; font-size: 28px;">Focused on a specific task</p>
+                <p style="margin-top: 40px; font-size: 28px;">Improve productivity without hiding the underlying web technologies</p>
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-top: 20px;">Adobe Edge Tools &amp; Services</h2>            
+            	<img src="img/edge-animate.png" width="259" height="250" style="margin-top: 70px;">
+                <p style="margin-top: 70px; font-size: 38px; color: rgb( 178, 170, 252 );">Adobe Edge Animate</p>
+            	<p style="margin-top: 10px; font-size: 28px;">Animate the Web</p>            
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-top: 20px;">Adobe Edge Tools &amp; Services</h2>            
+            	<img src="img/edge-inspect.png" width="259" height="250" style="margin-top: 70px;">
+                <p style="margin-top: 70px; font-size: 38px; color: rgb( 255, 170, 55 );">Adobe Edge Inspect</p>
+            	<p style="margin-top: 10px; font-size: 28px;">Preview the Web</p>            
+            </section>
+            <section>
+            	<img src="img/phonegap-logo.png" width="256" height="250" style="margin-left: 40px; margin-top: 160px; float: left;">
+                <div style="float: left; text-align: left; width: 450px; margin-top: 160px; margin-left: 60px;">
+                	<p style="margin-top: 25px; font-size: 28px; color: rgb( 107, 115, 123 );">PhoneGap</p>
+                    <p style="font-size: 46px;">An SDK to build mobile apps with web technologies</p>
+                </div>
+            </section>
+            <section>
+            	<p style="font-size: 148px; margin-left: -25px; margin-top: 170px; color: rgb( 251, 176, 52 ); -webkit-animation: pulse 2s infinite;">1,000,000</p>
+                <p style="font-size: 32px;">downloads</p>
+            </section>  
+            <section>
+            	<img src="img/phonegap-customers.png" width="800" height="355" style="margin-top: 130px;">
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-top: 20px;">Adobe Edge Tools &amp; Services</h2>            
+            	<img src="img/phonegap-build.png" width="259" height="250" style="margin-top: 70px;">
+                <p style="margin-top: 70px; font-size: 38px; color: rgb( 158, 218, 225 );">Adobe PhoneGap Build</p>
+            	<p style="margin-top: 10px; font-size: 28px;">Package Mobile Apps in the Cloud</p>            
+            </section>          
+            <section>
+            	<img src="img/brackets-logo.png" width="251" height="250" style="float: left; margin-top: 170px; margin-left: 100px;">
+                <p style="float: left; margin-top: 10px; font-size: 72px; margin-left: 60px; margin-top: 240px;">Brackets</p>
+            </section>  
+            <section>		
+                <h2 style="text-transform: none; margin-top: 22px; font-family: 'Courier New', Courier, monospace;">github.com/adobe/brackets</h2>            	
+                <a href="https://github.com/adobe/brackets" target="_blank">
+                <img src="img/brackets-screen.png" width="800" height="741" style="margin-top: 40px;">
+            	</a>
+            </section>          
+            <section>
+                <h2 style="text-transform: none; margin-top: 20px;">Adobe Edge Tools &amp; Services</h2>            
+            	<img src="img/edge-code.png" width="259" height="250" style="margin-top: 70px;">
+                <p style="margin-top: 70px; font-size: 38px; color: rgb( 75, 217, 195 );">Adobe Edge Code</p>
+            	<p style="margin-top: 10px; font-size: 28px;">Code the Web</p>            
+            </section>                                 
+            <section>
+                <h2 style="text-transform: none; margin-top: 20px;">Adobe Edge Tools &amp; Services</h2>            
+            	<img src="img/typekit.png" width="256" height="250" style="margin-top: 70px;">
+                <p style="margin-top: 70px; font-size: 38px; color: rgb( 157, 193, 68 );">TypeKit</p>
+            	<p style="margin-top: 10px; font-size: 28px;">High Quality Fonts for the Web</p>            
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-top: 20px;">Adobe Edge Tools &amp; Services</h2>            
+            	<img src="img/edge-web-fonts.png" width="259" height="250" style="margin-top: 70px;">
+                <p style="margin-top: 70px; font-size: 38px; color: rgb( 254, 205, 71 );">Adobe Edge Web Fonts</p>
+            	<p style="margin-top: 10px; font-size: 28px;">Get Started with Free Web Fonts</p>            
+            </section>                                                                                        
+            <section>
+                <h2 style="text-transform: none; margin-top: 20px;">Adobe Edge Tools &amp; Services</h2>            
+            	<img src="img/edge-reflow.png" width="259" height="250" style="margin-top: 70px;">
+                <p style="margin-top: 70px; font-size: 38px; color: rgb( 106, 223, 254 );">Adobe Edge Reflow</p>
+            	<p style="margin-top: 10px; font-size: 28px;">Design the Responsive Web</p>            
+            </section>   
+            <section>
+				<h2 style="text-transform: none; margin-top: 20px; margin-bottom: 50px;">Adobe Edge Tools &amp; Services</h2>
+                <img src="img/edge-mnemonics.png" width="800" height="363" style="margin-top: 40px;">            
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<div style="float: left; width: 296px; margin-top: 180px;">
+                	<img src="img/ccm-mnemonic.png" width="256" height="250">
+                </div>
+                <div style="float: left; width: 460px; text-align: left; padding-left: 50px;">
+                	<p style="font-size: 32px; margin-top: 110px;">The world&apos;s best creative tools</p>
+                    <p style="font-size: 32px; margin-top: 50px;">Integrated online services including file sharing, collaboration and publishing of apps and websites</p>
+                	<p style="font-size: 32px; margin-top: 50px;">Access to the latest updates as they&apos;re ready</p>
+                </div>
+            </section>
+            <section>
+            	<img src="img/ccm-screen.png" width="600" height="470" style="margin-top: 70px;">
+            </section>    
+            <section>
+            	<p style="margin-top: 190px; font-size: 152px; text-transform: uppercase;">Free</p>
+            </section>                                                                                                                                                                                                                                       
+        </section>
+        <section data-state="intro">
+            <h1 style="margin-top: 200px; text-transform: uppercase; border-bottom: solid; padding-bottom: 15px;">Create the Web</h1>
+            <h2 style="text-transform: none; font-size: 56px;">html.adobe.com</h2>
+        </section>         
+    </div>
+	<aside class="controls">
+		<a class="left" href="#">&#x25C4;</a>
+		<a class="right" href="#">&#x25BA;</a>
+		<a class="up" href="#">&#x25B2;</a>
+		<a class="down" href="#">&#x25BC;</a>
+	</aside>
+	<div class="progress"><span></span></div>    
+</div>
+
+<a href="http://html.adobe.com/events">
+<div class="adobe">
+	<img src="../img/adobe-logo.png" width="30" height="40">
+</div>
+</a>
+
+<script src="../revealjs/lib/js/head.min.js"></script>
+<script src="../revealjs/js/reveal.min.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize( {
+	controls: true,
+	progress: true,
+	history: true,
+	// default/cube/page/concave/linear(2d)
+	transition: Reveal.getQueryHash().transition || 'default', 
+	
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: '../revealjs/lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+		{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: '../revealjs/lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+		{ src: '../revealjs/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+	]
+} );
+</script>
+
+</body>
+</html>

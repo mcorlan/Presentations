@@ -1,0 +1,579 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Crawl the many creative things you can do with canvas.">
+<meta name="author" content="Kevin Hoyt">
+
+<title>Getting Canvas</title>
+
+<link rel="stylesheet" href="../revealjs/css/main.css">
+<link rel="stylesheet" href="../revealjs/css/theme/white.css">
+<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+<link rel="stylesheet" href="../style/custom.css">
+
+</head>
+<body>
+
+<div class="reveal">
+	<div class="slides">
+    	<section>
+			<h1 style="margin-top: 150px;">Getting Canvas</h1>
+            <h2>with Kevin Hoyt</h2>
+        </section>
+    	<section>
+        	<section>
+                <h2 style="margin-bottom: 50px; text-transform: none;">Using the Canvas Tag</h2>
+                <pre style="margin-top: 120px;"><code contenteditable>&lt;canvas id="chart" width="150" height="150"&gt;  
+  Current stock price: $3.15 +0.15  
+&lt;/canvas&gt;
+      
+&lt;canvas id="clock" width="150" height="150"&gt;  
+  &lt;img 
+    src="imagesclock.png" 
+    width="150" 
+    height="150"/&gt;  
+&lt;/canvas&gt;</code></pre>            
+            </section>
+            <section>
+                <h2 style="margin-bottom: 50px; text-transform: none;">Rendering Context</h2>
+                <pre style="margin-top: 120px;"><code contenteditable>var canvas = document.getElementById( 'canvas' );
+var context = null;  
+  
+if( canvas.getContext )
+{  
+  context = canvas.getContext( '2d' );  
+  // Drawing code here  
+} else {  
+  // Unsupported code here  
+}</code></pre>
+            </section>
+            <section>
+                <h2 style="margin-bottom: 10px; text-transform: none;">Coordinate Space</h2>
+				<img src="img/coordinate-space.png" width="486" height="503" style="border: none; box-shadow: none; margin-top: 0px;">
+            </section>
+            <section>
+                <h2 style="margin-bottom: 10px; text-transform: none;">Drawing Paths</h2>
+                <pre style="margin-top: 100px;"><code contenteditable>context.beginPath();
+
+context.arc( 75, 75, 50, 0, Math.PI * 2, true );
+context.moveTo( 110, 75 );
+context.arc( 75, 75, 35, 0, Math.PI, false );
+context.moveTo( 65, 65 );
+context.arc( 60, 65, 5, 0, Math.PI * 2, true );
+context.moveTo( 95, 65 );
+context.arc( 90, 65, 5, 0, Math.PI * 2, true );
+
+// context.closePath();
+context.stroke();
+// context.fill();</code></pre>
+            </section>
+            <section>
+                <h2 style="margin-bottom: 40px; text-transform: none;">Understanding Lines</h2>
+                <img src="img/understanding-lines.png" width="856" height="372" style="border: none; box-shadow: none;">
+            </section>
+            <section>
+                <h2 style="margin-bottom: 50px; text-transform: none;">Caps, Joints and Miters</h2>
+            	<img src="img/cap-joints-miters.png" width="773" height="338" style="border: none; box-shadow: none;">
+            </section>
+            <section>
+                <h2 style="margin-bottom: 20px; text-transform: none;">Curves</h2>
+                <img src="img/curves.png" width="817" height="411" style="border: none; box-shadow: none;">
+            </section>
+            <section>
+                <h2 style="margin-bottom: 30px; text-transform: none;">Styles and Colors</h2>
+                <p style="font-family: 'Courier New', Courier, monospace; font-size: 28px;">fillStyle</p>
+                <p style="font-family: 'Courier New', Courier, monospace; font-size: 28px;">strokeStyle</p>
+                <img src="img/styles-colors.png" width="723" height="186" style="border: none; box-shadow: none; margin-top: 10px; margin-bottom: 10px;">
+            	<p style="font-family: 'Courier New', Courier, monospace; font-size: 28px;">orange</p>
+                <p style="font-family: 'Courier New', Courier, monospace; font-size: 28px;">#FFA500</p>
+                <p style="font-family: 'Courier New', Courier, monospace; font-size: 28px;">rgb( 255, 165, 0 )</p>
+                <p style="font-family: 'Courier New', Courier, monospace; font-size: 28px;">rgba( 255, 165, 0, 1 )</p>
+            </section>
+            <section>
+                <h2 style="margin-bottom: 30px; text-transform: none;">Linear Gradient</h2>
+                <pre style="margin-top: 100px;"><code contenteditable>// Start point and stop point
+// Controls angle/direction of gradient
+var fill = context.createLinearGradient( 0, 0, 0, 50 );
+
+// 0 - 1 relative to gradient range
+fill.addColorStop( 0, ‘#FFFFFF’ );
+fill.addColorStop( 0.5, ‘#FFA500’ );
+fill.addColorStop( 1, ‘#FFFFFF’ );
+
+// Apply the fill style
+context.fillStyle = fill;
+context.fillRect( 0, 0, 50, 50 );</code></pre>
+            </section>
+            <section>
+                <h2 style="margin-bottom: 30px; text-transform: none;">Radial Gradient</h2>
+				<pre style="margin-top: 50px;"><code contenteditable>// Start point and stop point
+// Inner circle point and radius
+// Outer circle point and radius
+// Not necessarily a single point
+var fill = context.createRadialGradient( 
+    95, 15, 15, 
+    102, 20, 40 
+);
+
+// 0 - 1 relative to gradient range
+fill.addColorStop( 0, ‘#FFFFFF’ );
+fill.addColorStop( 0.5, ‘#FFA500’ );
+fill.addColorStop( 1, ‘#FFFFFF’ );
+
+// Apply the fill style
+context.fillStyle = fill;
+context.fillRect( 0, 0, 50, 50 );</code></pre>            
+            </section>
+            <section>
+                <h2 style="margin-bottom: 30px; text-transform: none;">Text and Shadows</h2>
+				<pre style="margin-top: 65px;"><code contenteditable>var canvas = document.getElementById( 'canvas' );
+var ctx = null;
+	
+if( canvas.getContext )
+{
+    ctx = canvas.getContext( '2d' );
+	
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+    ctx.shadowBlur = 2;
+    ctx.shadowColor = 'rgba( 0, 0, 0, 0.5 )';
+		  
+    ctx.font = '20px Times New Roman';
+    ctx.fillStyle = 'black';
+    ctx.fillText( 'Sample String', 5, 30 );
+}</code></pre>     	
+            </section>
+        </section>     
+        <section>
+        	<section>
+				<h1 style="margin-top: 80px;">Ready?</h1>
+                <h2 style="margin-top: 60px;">Up next is a whilrwind tour of twenty different ways to use canvas.</h2>
+        	</section>
+            <section>
+            	<h2 style="margin-bottom: 30px; text-transform: none;">Shapes</h2>
+				<a href="http://kevinhoyt.com/playground/canvas/shapes" target="_blank">
+                <img src="img/shapes.png" width="500" height="388" style="border: none; box-shadow: none;">
+            	</a>
+            </section>
+        </section>  
+        <section>
+        	<section>
+				<h2 style="margin-bottom: 30px; text-transform: none;">Follow the Mouse</h2>
+                <pre style="margin-top: 30px;"><code contenteditable>function doCanvasDown( evt ) {
+  context.strokeStyle = generateRandomColor();			
+  context.moveTo( evt.offsetX, evt.offsetY );
+  context.beginPath();
+	
+  canvas.addEventListener( 'mousemove', doCanvasMove );
+  canvas.addEventListener( 'mouseup', doCanvasUp );
+}</code></pre>            
+				<pre style="" class="fragment"><code contenteditable>function doCanvasMove( evt ) {
+  context.lineTo( evt.offsetX, evt.offsetY );		
+  context.stroke();	
+}</code></pre>             
+				<pre style="" class="fragment"><code contenteditable>function doCanvasUp() {
+  canvas.removeEventListener( 'mousemove', doCanvasMove );
+  canvas.removeEventLsitener( 'mouseup', doCanvasUp );	
+}</code></pre>             
+            </section>  
+            <section>
+				<h2 style="text-transform: none;">Follow the Mouse</h2>
+				<a href="http://kevinhoyt.com/playground/canvas/mouse" target="_blank">
+                <img src="img/html5.png" width="380" height="442" style="margin-top: 15px; border: none; box-shadow: none;">
+            	</a>
+            </section>     
+        </section> 
+        <section>
+        	<section>
+				<h2 style="text-transform: none;">Follow the Finger</h2>            
+				<pre style="margin-top: 40px;"><code contenteditable>var touch = ( 'ontouchstart' in document.documentElement ) 
+  ? true : false;</code></pre>
+  				<pre style="margin-top: 0px;" class="fragment"><code contenteditable>canvas.addEventListener( touch ? 
+  'touchmove' : 'mousemove', doCanvasMove );
+canvas.addEventListener( touch ? 
+  'touchend' : 'mouseup', doCanvasUp );</code></pre>
+				<pre style="margin-top: 0px;" class="fragment"><code contenteditable>if( touch )
+{
+  evt.preventDefault();
+		
+  clientX = evt.touches[0].clientX;
+  clientY = evt.touches[0].clientY;
+} else {
+  clientX = evt.clientX;
+  clientY = evt.clientY;
+}</code></pre>
+            </section>
+            <section>
+				<h2 style="margin-bottom: 40px; text-transform: none;">Follow the Finger</h2> 
+                <a href="http://kevinhoyt.com/playground/canvas/graffiti" target="_blank">           
+                <img src="img/finger.png" width="600" height="375" style="border: none; box-shadow: none;">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<h2 style="text-transform: none;">Line Interpolation</h2>
+                <pre style="margin-top: 0px;"><code contenteditable>var xabs = Math.abs( point1.x - point2.x );
+var yabs = Math.abs( point1.y - point2.y );	
+var xdiff = point2.x - point1.x;
+var ydiff = point2.y - point1.y;
+
+var length = Math.sqrt( ( 
+  Math.pow( xabs, 2 ) + Math.pow( yabs, 2 ) ) );
+var steps = length / distance;
+var xstep = xdiff / steps;
+var ystep = ydiff / steps;
+
+var newx, newy = 0;
+var result = new Array();
+
+for( var s = 0; s < steps; s++ ) {
+  newx = point1.x + ( xstep * s );
+  newy = point1.y + ( ystep * s );
+            
+  result.push( {x: newx, y: newy} );
+}</code></pre>
+			</section>
+            <section>
+            	<h2 style="text-transform: none; margin-bottom: 55px;">Line Interpolation</h2>
+                <a href="http://kevinhoyt.com/playground/canvas/interpolate" target="_blank">
+            	<img src="img/interpolation.png" width="600" height="340" style="border: none; box-shadow: none;">
+            	</a>
+            </section>
+            <section>
+            	<h2 style="text-transform: none; margin-bottom: 40px;">Line Interpolation</h2>
+                <a href="http://kevinhoyt.com/playground/canvas/planes" target="_blank">
+            	<img src="img/smooth.png" width="600" height="386" style="border: none; box-shadow: none;">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+        		<h2 style="text-transform: none; margin-bottom: 20px;">Character Animation</h2>
+            	<pre style="margin-top: 0px;"><code contenteditable>sprite = new Image();
+  sprite.addEventListener( 'load', doSpriteLoad );
+  sprite.src = 'blue.png';</code></pre>
+				<pre style="margin-top: 0px;" class="fragment"><code contenteditable>sheet = new SpriteSheet( {
+  images: [this],
+  frames: {
+    width: 183, 
+    height: 183, 
+    regX: 88, 
+    regY: 96
+  }, animations: {
+    infect: [0, 74, 'infect']
+  }
+} );</code></pre>
+				<pre style="margin-top: 0px;" class="fragment"><code contenteditable>animation = new BitmapAnimation( sheet );
+animation.gotoAndPlay( 'infect' );	
+
+stage.addChild( animation );</code></pre>            
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 40px;">Character Animation</h2>
+                <a href="http://kevinhoyt.com/playground/canvas/virus" target="_blank">
+                <img src="img/animation.png" width="551" height="380" style="border: none; box-shadow: none;">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<h2 style="text-transform: none;">Dynamic Charting</h2>
+        		<img src="img/arduino.png" width="500" height="427" style="border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<h2 style="text-transform: none;">Dynamic Charting</h2>
+                <pre style="margin-top: 0px;"><code contenteditable>reading = analogRead( photocell ); 
+
+Serial.print( reading );
+Serial.write( ( byte )0x00 );</code></pre>
+  				<pre style="margin-top: 0px;" class="fragment"><code contenteditable>var socket = new air.XMLSocket();
+
+socket.addEventListener( 
+  air.Event.CONNECT, function( evt ) {
+    setInterval( doRedrawChart, 50 );
+  }
+);</code></pre>
+				<pre style="margin-top: 0px;" class="fragment"><code contenteditable>socket.addEventListener( air.DataEvent.DATA, 
+  function( evt ) {
+    chartData.push( evt.data );
+  } 
+);
+
+socket.connect( '127.0.0.1', 5331 );</code></pre>
+            </section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: 30px;">Dynamic Charting</h2>
+                <img src="img/photocell.png" width="550" height="413" style="border: none; box-shadow: none;">
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 40px;">Custom Charting</h2>
+                <a href="http://kevinhoyt.com/playground/canvas/beer" target="_blank">
+                <img src="img/beer.png" width="500" height="362" style="border: none; box-shadow: none;">            
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: 60px;">Painting with Pixels</h2>
+                <pre style="margin-top: 0px;"><code contenteditable>img = new Image();
+img.onload = function() {
+  context.drawImage( img, 0, 0 );
+};
+img.src = 'images/backdrop.png';</code></pre>
+				<pre style="margin-top: 0px;"><code contenteditable>source = document.getElementById( 'lines' );
+ctx = source.getContext( '2d' );
+	
+ctx.beginPath();  
+drawSomeStuff();
+ctx.stroke();  
+	
+destination = document.getElementById( 'canvas' );
+ctx = destination.getContext( '2d' );
+ctx.drawImage( source, 0, 0 );</code></pre>
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 40px;">Painting with Pixels</h2>
+                <a href="http://kevinhoyt.com/playground/canvas/brush" target="_blank">
+                <img src="img/paint.png" width="500" height="369" style="border: none; box-shadow: none;">
+            	</a>
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 55px;">Painting with Pixels</h2>
+                <a href="http://kevinhoyt.com/playground/canvas/slicing" target="_blank">
+                <img src="img/slice.png" width="345" height="338" style="border: none; box-shadow: none;">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: 25px;">Masking</h2>
+                <pre style="margin-top: 0px;"><code contenteditable>// Scratched off area
+scratched.clearRect( 0, 0, sizing.width, sizing.height );
+	
+for( var p = 0; p < clrd.length; p++ ) {
+  index = clrd[p].index;
+  scratched.drawImage( rubs[index], clrd[p].x, clrd[p].y );
+}
+	
+// XOR scratch area image
+composite.clearRect( 0, 0, sizing.width, sizing.height );
+composite.drawImage( film, 0, 0 );
+composite.globalCompositeOperation = 'xor';
+composite.drawImage( canvas, 0, 0 );
+composite.globalCompositeOperation = 'source-over';
+	
+// Combine with full ticket image
+canvas = document.getElementById( 'composite' );
+finish.drawImage( ticket, 0, 0 );
+finish.drawImage( canvas, bounds.x, bounds.y );</code></pre>	   
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 5px;">Masking</h2>   
+                <a href="http://kevinhoyt.com/playground/canvas/scratch" target="_blank">
+                <img src="img/lottery.png" width="319" height="460" style="border: none; box-shadow: none;">         
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: 85px;">Dissecting Pixels</h2>
+                <pre style="margin-top: 0px;"><code contenteditable>pixels = context.getImageData( 
+  0, 
+  0, 
+  640, 
+  480 
+);
+	
+for( var p = 0; p < pixels.data.length; p += 4 )
+{
+  red = pixels.data[p + 0];
+  green = pixels.data[p + 1];
+  blue = pixels.data[p + 2];
+}</code></pre>
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 15px;">Dissecting Pixels</h2>
+                <a href="http://kevinhoyt.com/playground/canvas/stereogram" target="_blank">
+                <img src="img/3d.png" width="500" height="428" style="border: none; box-shadow: none;">
+            	</a>
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 70px;">Dissecting Pixels</h2>
+                <a href="http://kevinhoyt.com/playground/css/pixels" target="_blank">
+                <img src="img/bart.simpson.png" width="168" height="300" style="border: none; box-shadow: none;">
+            	</a>
+            </section>                                   
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 10px;">Dissecting Pixels</h2>
+				<pre style="margin-top: 0px;"><code contenteditable>socket = new WebSocket( 'ws://localhost:8090' ); 
+socket.send( color );</code></pre>
+              	<pre style="margin-top: 0px;" class="fragment"><code contenteditable>var sockets = new WebSocketServer( {
+  httpServer: server
+} );
+
+sockets.on( 'request', function( request ) {
+  var connection = request.accept( null, request.origin );
+
+  clients.push( connection );
+
+  connection.on( 'message', function( message ) {
+    for( var i = 0; i < clients.length; i++ ) 
+    {
+       clients[i].sendUTF( message.utf8Data );
+    }			
+  } );
+
+  connection.on( 'close', function( connection ) {;} );
+} );</code></pre>
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 70px;">Dissecting Pixels</h2>
+                <a href="http://playground:8888/websocket/picker/picker.html" target="_blank">
+                <img src="img/picker.png" width="500" height="328" style="border: none; box-shadow: none;">
+            	</a>
+            </section>  
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 5px;">Dissecting Pixels</h2>
+                <a href="http://playground:8888/websocket/serial/picker.html" target="_blank">
+                <img src="img/blinkm.png" width="510" height="475" style="border: none; box-shadow: none;">
+            	</a>
+            </section>                                                                                                                                                                         
+        </section>
+        <section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: 60px;">Saving State</h2>
+                <pre style="margin-top: 0px;"><code contenteditable>opposite = Math.max( start.y, end.y ) - 
+  Math.min( start.y, end.y );
+adjacent = Math.max( start.x, end.x ) - 
+  Math.min( start.x, end.x );
+rotation = Math.tan( opposite / adjacent );</code></pre>
+				<pre style="margin-top: 0px;"><code contenteditable>canvas.save();
+canvas.translate( window.innerWidth / 2, 
+  window.innerHeight / 2
+);
+canvas.rotate( rotation );
+canvas.drawImage( 
+  image, 
+  0 - ( image.width / 2 ), 
+  0 - ( image.height / 2 ) 
+);
+canvas.restore();</code></pre>
+            </section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: 60px;">Saving State</h2>
+                <a href="http://kevinhoyt.com/playground/canvas/horizon" target="_blank">
+                <img src="img/horizon.png" width="500" height="340" style="border: none; box-shadow: none;">
+           		</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: 80px;">Beyond Canvas</h2>
+            	<pre style="margin-top: 0px;"><code contenteditable>var reader = new FileReader();
+
+reader.onload = function( evt ) {
+  
+var exif = new ExifInfo( evt.target.result );
+
+  $( '&lt;img src="data:image/jpeg;base64,' + 
+    btoa( exif.thumbnail ) + 
+    '"/&gt;' ) 
+    .appendTo( '#output' );
+};
+
+reader.readAsBinaryString( this.files[0] );</code></pre>
+            </section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: -10px;">Beyond Canvas</h2>
+                <a href="http://kevinhoyt.com/playground/file/exif" target="_blank">
+                <img src="img/paige.png" width="295" height="493" style="border: none; box-shadow: none;">
+           		</a>
+            </section>
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 35px;">Beyond Canvas</h2>
+                <pre style="margin-top: 0px;"><code contenteditable>if( window.DeviceOrientationEvent )
+{
+  window.addEventListener( 'deviceorientation', 
+    doDeviceOrientation );
+}
+	
+if( window.DeviceMotionEvent )
+{
+  window.addEventListener( 'devicemotion', 
+    doDeviceMotion );
+}</code></pre>
+				<pre style="margin-top: 0px;"><code contenteditable>update( evt.gamma, evt.beta );</code></pre>
+				<pre style="margin-top: 0px;"><code contenteditable>update( 
+  evt.accelerationIncludingGravity.x, 
+  evt.accelerationIncludingGravity.y 
+);</code></pre>
+            </section>
+        	<section>
+                <h2 style="text-transform: none; margin-bottom: 70px;">Beyond Canvas</h2>
+                <a href="http://kevinhoyt.com/playground/orientation/golf" target="_blank">
+                <img src="img/golf.png" width="500" height="307" style="border: none; box-shadow: none;">
+           		</a>                
+            </section> 
+            <section>
+                <h2 style="text-transform: none; margin-bottom: 15px;">Beyond Canvas</h2>
+                <a href="http://playground:8888/websocket/golf/golf.html" target="_blank">
+                <img src="img/accelerometer.png" width="400" height="400" style="border: none; box-shadow: none;">
+                </a>               			
+            </section>                                               
+        </section>
+    	<section>
+			<h1 style="margin-top: 150px;">Getting Canvas</h1>
+            <h2>with Kevin Hoyt</h2>
+        </section>        
+	</div>
+    
+    <aside class="controls">
+        <a class="left" href="#">&#x25C4;</a>
+        <a class="right" href="#">&#x25BA;</a>
+        <a class="up" href="#">&#x25B2;</a>
+        <a class="down" href="#">&#x25BC;</a>
+    </aside>
+
+	<div class="progress"><span></span></div>    
+</div>
+
+
+<a href="http://html.adobe.com/events">
+<div class="adobe">
+	<img src="../img/adobe-logo.png" width="30" height="40">
+</div>
+</a>
+
+<div class="social">@krhoyt</div>
+
+<script src="../revealjs/lib/js/head.min.js"></script>
+<script src="../revealjs/js/reveal.min.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize( {
+	controls: true,
+	progress: true,
+	history: true,
+	// default/cube/page/concave/linear(2d)
+	transition: Reveal.getQueryHash().transition || 'default', 
+	
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: '../revealjs/lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+		{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: '../revealjs/lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+		{ src: '../revealjs/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+	]
+} );
+</script>
+
+</body>
+</html>

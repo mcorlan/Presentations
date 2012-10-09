@@ -1,0 +1,614 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Getting started with Arduino.">
+<meta name="author" content="Kevin Hoyt">
+
+<title>Getting Maker</title>
+
+<link rel="stylesheet" href="../revealjs/css/main.css">
+<link rel="stylesheet" href="../revealjs/css/theme/white.css">
+<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+<link rel="stylesheet" href="../style/custom.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="../highcharts/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var population = null;
+
+function doWindowLoad()
+{
+	population = new Highcharts.Chart( {
+		chart: {
+			renderTo: 'population',
+			type: 'column'
+		},
+		colors: [
+			'#005CC0',
+			'#1F880E',
+			'#0E9196'
+		],
+		credits: {
+			enabled: false
+		},
+		legend: {
+			borderWidth: 0,
+			style: {
+				color: '#000',
+				fontFamily: 'Gill Sans',
+				fontSize: '20px'	
+			}
+		},
+		title: {
+			text: 'Internet Users Per 100 Inhabitants'
+		},
+		xAxis: {
+			categories: ['Apples', 'Bananas', 'Oranges']
+		},
+		yAxis: {
+			title: {
+				text: null
+			}
+		},
+		series: [{
+			name: 'Developed World',
+            data: [1, 0, 4]
+		}, {
+            name: 'Developing World',
+            data: [5, 7, 3]
+		}, {
+            name: 'World Globally',
+            data: [5, 7, 3]
+		}]
+	} );	
+}
+
+window.onload = doWindowLoad;
+</script>
+
+</head>
+<body>
+
+<div class="reveal">
+	<div class="slides">
+    	<section>
+        	<section>
+                <h1 style="margin-top: 150px; text-transform: none;">Getting Maker</h1>
+                <h2>with Kevin Hoyt</h2>            
+            </section>
+            <section>
+            	<h2 style="margin-bottom: 50px; text-transform: none;">What You Will Need</h2>
+                <p style="margin-bottom: -5px; font-size: 28px;">Arduino</p>
+                <p style="margin-bottom: 25px; font-size: 28px;"><a href="http://arduino.cc/en/Main/Software" target="_blank">http://arduino.cc/en/Main/Software</a></p>
+            	<p style="margin-bottom: -5px; font-size: 28px;">Project Code</p>
+                <p style="margin-bottom: 25px; font-size: 28px;"><a href="https://dl.dropbox.com/u/235033/getting-maker.zip" target="_blank">https://dl.dropbox.com/u/235033/getting-maker.zip</a></p>
+            	<p style="margin-bottom: -5px; font-size: 28px;">Adobe AIR Runtime</p>
+                <p style="margin-bottom: 25px; font-size: 28px;"><a href="http://get.adobe.com/air/" target="_blank">http://get.adobe.com/air</a></p>
+                <p style="margin-bottom: -5px; font-size: 28px;">Adobe AIR SDK</p>
+                <p style="margin-bottom: 25px; font-size: 28px;"><a href="http://www.adobe.com/devnet/air/air-sdk-download.html" target="_blank">http://www.adobe.com/devnet/air/air-sdk-download.html</a></p>
+            	<p style="margin-bottom: -5px; font-size: 28px;">Serial2Socket</p>
+                <p style="margin-bottom: 25px; font-size: 28px;"><a href="https://github.com/kalanda/serial2socket-proxy" target="_blank">https://github.com/kalanda/serial2socket-proxy</a></p>
+            </section>
+        </section>
+    	<section>
+        	<img src="img/cardboard-box.jpg" width="500" height="455" style="padding-top: 50px; border: none; background: none; box-shadow: none;">
+        </section>       
+    	<section>      
+        	<section>
+            	<!-- http://www.flickr.com/photos/rmhowie/6958321621 -->
+            	<img src="img/red-led.jpg" width="500" height="333" style="-webkit-transform: rotate( -5deg );">
+            	<p style="padding-top: 65px;">In 1960, General Electric (GE) introduced the light emitting diode (LED).  It comes only in red, and cost $260 for each unit.</p>
+        	</section>
+            <section>
+            	<img src="img/color-led.jpg" width="476" height="353" style="-webkit-transform: rotate( -5deg );">  
+            	<p style="padding-top: 60px;">Light emitting diodes (LED) are now available from countless vendors, in a myriad of colors, for less than $0.50 for each unit.</p>            
+            </section>
+        </section> 
+        <!--            
+        <section>
+			<section>
+            	<div id="population" style="margin-left: 105px; margin-top: 20px; width: 600px; height: 450px;"></div>
+            	<p style="margin-top: 30px;">When Google first indexed the web in 1998, it found roughly 26 million web pages.</p>
+            </section>
+            <section>
+            	<div id="something" style="width: 700px; height: 500px;"></div>
+            	<p>By 2008, ten years later, there were more than one trillion web pages.</p>            
+            </section>
+        </section>
+        -->
+        <section>
+        	<section>
+        		<img src="img/programmer.jpg" width="475" height="358" style="-webkit-transform: rotate( 5deg );">
+        		<p style="padding-top: 55px;">Hardware programmers were about the size of a shoebox, weighed nearly 4 kg, and could cost thousands of dollars each.</p>
+        	</section>
+            <section>
+            	<img src="img/arduino-uno.jpg" width="500" height="398" style="border: none; box-shadow: none;">
+            	<p style="padding-top: 30px;">Arduino is open source, about the size of a deck of cards, costs under $25, and can be programmed via USB. It runs at 16 Mhz.</p>
+            </section>
+        </section>
+        <section>
+        	<a href="http://www.themagicclock.com" target="_blank">
+        	<img src="img/potter-clock.jpg" width="367" height="612" style="border: none; box-shadow: none; margin-top: -5px;">
+        	</a>
+        </section>
+        <section>
+        	<section>
+        		<pre style="margin-top: 120px;"><code contenteditable>// Called once at the start
+// Configure the various parts
+void setup() 
+{                
+  
+}
+
+// Called repeatedly as fast as possible
+// Does the core operation of your program
+// Yes this is an infinite loop - gasp
+void loop() 
+{
+
+}</code></pre>
+			</section>
+            <section>
+        		<pre style="margin-top: 20px;"><code contenteditable>// Called once at the start
+// Configure the various parts
+// In this case the LED on pin 13
+void setup() 
+{                
+  pinMode( ledPin, OUTPUT );     
+}
+
+// Called repeatedly as fast as possible
+// Does the core operation of your program
+// In this case blinking an LED on pin 13
+void loop() 
+{
+  // On for a second
+  digitalWrite( ledPin, HIGH ); 
+  delay( 1000 );    
+
+  // Off for a second  
+  digitalWrite( ledPin, LOW );  
+  delay( 1000 );            
+}</code></pre>            
+            </section> 
+            <section>
+            	<a href="http://vimeo.com/10534206" target="_blank">
+            	<img src="img/stationary-bike.jpg" width="666" height="443" style="margin-top: 55px; -webkit-transform: rotate( 5deg );">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<img src="img/led-diagram.jpg" width="470" height="305" style="margin-top: 150px; border: none; box-shadow: none;">
+            </section>
+            <section>
+                	<img src="img/ohms-triangle.jpg" width="400" height="391" style="float: left; margin-top: 90px; border: none; box-shadow: none;">
+                	<div style="float: left; padding-left: 30px; padding-top: 150px; font-size: 42px; line-height: 80px;">
+                    	5V = 0.04 A * R &#8486;<br>
+                        5V / 0.40 A = R &#8486;<br>
+                        R = 125 &#8486;
+                    </div>
+            </section>
+            <section>
+            	<img src="img/resistor-chart.jpg" width="317" height="402" style="padding-top: 65px; border: none; box-shadow: none;">
+            </section>
+            <section>
+                <img src="img/breadboard.jpg" width="600" height="600" style="margin-top: 10px; border: none; box-shadow: none;">
+            </section>
+        	<section>
+        		<img src="img/led-wiring.jpg" width="526" height="273" style="margin-top: 150px; border: none; box-shadow: none;">
+        	</section>                        
+        </section>
+        <section>
+            <section>
+        		<pre style="margin-top: 150px;"><code contenteditable>// Called to configure the system
+// Opens serial communication
+// Sets the LED pin as output
+void setup()   
+{                
+  Serial.begin( 9600 );
+  pinMode( ledPin, OUTPUT );     
+  digitalWrite( ledPin, LOW );
+}</code></pre>            
+            </section>
+            <section>
+        		<pre style="margin-top: 10px;"><code contenteditable>// Variable to store incoming value
+int incoming = 0;
+
+// If there is data on the serial input
+if( Serial.available() > 0 )
+{
+  // Read a byte of the serial input
+  // 0 (ASCII) == 48 (int)
+  // 1 (ASCII) == 49 (int)
+  incoming = Serial.read();
+    
+  // If zero then turn the LED off
+  // Anything else will turn the LED on
+  if( incoming == 48 )
+  {
+    digitalWrite( ledPin, LOW );    
+  } else {  
+    digitalWrite( ledPin, HIGH );
+  }
+    
+  // Echo the read value 
+  // Helpful for debugging
+  Serial.println( incoming );
+}</code></pre>
+            </section>
+            <section>
+            	<pre style="margin-top: 50px;"><code contenteditable>// Map to the 255 steps of PWM
+incoming = ( 255 / 10 ) * ( incoming - 48 );
+    
+// If fading from lower value to larger value
+if( incoming > ledValue )
+{
+  for( int fadeValue = ledValue; 
+       fadeValue <= incoming; 
+       fadeValue +=5 ) { 
+         analogWrite( ledPin, fadeValue );         
+         delay( 30 );                           
+  } 
+} else { 
+  // Fading from larger value to lower value
+  for( int fadeValue = ledValue; 
+       fadeValue >= incoming; 
+       fadeValue -=5 ) { 
+         analogWrite( ledPin, fadeValue );         
+         delay( 30 );                           
+  }       
+}</code></pre>
+            </section>
+            <section>
+            	<a href="http://thingm.com/products/winem.html" target="_blank">
+           		<img src="img/wine-m.jpg" width="512" height="383" style="margin-top: 90px; -webkit-transform: rotate( -5deg );"> 
+            	</a>
+            </section>            
+		</section>
+    	<section>
+        	<section>
+            	<img src="img/photocell.jpg" width="600" height="600" style="margin-top: 0px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<img src="img/photocell-wiring.jpg" width="604" height="362" style="padding-top: 100px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<pre style="margin-top: 120px;"><code contenteditable>void loop() 
+{
+  // Get the analog value from the pin
+  int photocellReading = analogRead( photocellPin );  
+ 
+  // Display the analog value over serial
+  Serial.print( "Analog reading = " );
+  Serial.println( photocellReading );
+ 
+  // Wait a second before sampling again
+  delay( 1000 );
+}</code></pre>
+            </section>
+            <section>
+            	<img src="img/photocell-fade-wiring.jpg" width="500" height="314" style="margin-top: 140px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<pre style="margin-top: 40px;"><code contenteditable>int brightness;
+int reading = analogRead( PHOTOCELL_PIN ); 
+
+// Display reading
+Serial.print( "Analog reading = " );
+Serial.println( reading );
+
+// Invert reading
+// Higher brightness means less light
+reading = 1023 - reading;
+  
+// Map reading range to PWM range
+// May need to customize range
+brightness = map( reading, 300, 800, 0, 255 );
+
+// Set the brightness of the LED
+// PWM to control brightness (analog write)
+analogWrite( LED_PIN, brightness );
+
+// Wait for next adjustment
+delay( 100 );</code></pre>
+            </section>
+            <section>
+            	<a href="http://andres-leon.blogspot.com/2009/04/my-first-arduino-project-diy-automatic.html" target="_blank">
+            	<img src="img/leet-skillz.jpg" width="413" height="550" style="margin-top: 10px; -webkit-transform: rotate( 5deg );">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<img src="img/thermistor.jpg" width="550" height="550" style="margin-top: 10px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<img src="img/thermistor-wiring.jpg" width="542" height="319" style="margin-top: 130px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<pre style="margin-top: 20px;"><code contenteditable>// Include an external library
+#include &lt;Thermistor.h&gt;
+
+// Instantiate an instance
+// Pass analog pin to use
+Thermistor temp( 0 );
+
+void setup() 
+{
+  Serial.begin( 9600 );
+}
+
+void loop() 
+{
+  // Get the temperature
+  double temperature = temp.getTemp();
+  
+  // Display the temperature
+  Serial.println( temperature );
+  
+  // Wait a second
+  delay( 1000 );
+}</code></pre>
+            </section>
+            <section>
+            	<a href="http://planetstephanie.net/2012/05/09/thermostat-three" target="_blank">
+            	<img src="img/star-trek.jpg" width="512" height="443" style="margin-top: 60px; -webkit-transform: rotate( 5deg );">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<img src="img/adobe-air.jpg" width="386" height="386" style="margin-top: 95px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<pre style="margin-top: -15px;"><code contenteditable>&lt;application 
+  xmlns="http://ns.adobe.com/air/application/3.2"&gt;
+  &lt;id&gt;com.adobe.khoyt.HelloWorld&lt;/id&gt;
+  &lt;name&gt;
+    &lt;text xml:lang="en"&gt;Hello World&lt;/text&gt;
+  &lt;/name&gt;
+  &lt;versionNumber&gt;1.0.0&lt;/versionNumber&gt;
+  &lt;filename&gt;Hello World&lt;/filename&gt;
+  &lt;description&gt;
+    &lt;text xml:lang="en"&gt;
+      Most basic HTML-based Adobe AIR application.
+    &lt;/text&gt;
+  &lt;/description&gt;
+  &lt;initialWindow&gt;
+    &lt;content&gt;index.html&lt;/content&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+    &lt;systemChrome&gt;standard&lt;/systemChrome&gt;
+    &lt;transparent&gt;false&lt;/transparent&gt;
+    &lt;visible&gt;true&lt;/visible&gt;
+    &lt;minimizable&gt;true&lt;/minimizable&gt;
+    &lt;maximizable&gt;false&lt;/maximizable&gt;
+    &lt;resizable&gt;false&lt;/resizable&gt;
+    &lt;width&gt;500&lt;/width&gt;
+    &lt;height&gt;500&lt;/height&gt;
+  &lt;/initialWindow&gt;
+&lt;/application&gt;</code></pre>
+            </section>
+            <section>
+            	<pre style="margin-top: 100px;"><code contenteditable>&lt;html&gt;
+&lt;head&gt;
+
+&lt;title&gt;Hello World&lt;/title&gt;
+
+&lt;script src="AIRAliases.js" 
+  type="text/javascript"&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+Hello World!
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </section>
+            <section>
+            	<img src="img/hello-air.jpg" width="446" height="446" style="border: none; box-shadow: none;">
+                <pre style="margin-top: 30px;"><code contenteditable>./AIR_3.2/bin/adl Desktop/Hello/application.xml</code></pre>
+            </section>
+            <section>
+            	<a href="http://someoneknows.wordpress.com/2009/01/12/arduino-powered-robotic-labyrinth-game" target="_blank">
+            	<img src="img/labryinth.jpg" width="500" height="305" style="margin-top: 120px; -webkit-transform: rotate( -5deg );">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<img src="img/air-thermistor.jpg" width="542" height="319" style="margin-top: 130px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<pre style="margin-top: 0px;"><code contenteditable>// Include an external library
+#include &lt;Thermistor.h&gt;
+
+// Instantiate an instance
+// Pass analog pin to use
+Thermistor temp( 0 );
+
+void setup() 
+{
+  Serial.begin( 9600 );
+}
+
+void loop() 
+{
+  // Get the temperature
+  double temperature = temp.getTemp();
+  
+  // Display the temperature
+  // Null byte trigger data event
+  Serial.print( temperature );
+  Serial.write( ( byte )0x00 );
+  
+  // Wait a second
+  delay( 1000 );
+}</code></pre>
+            </section>
+            <section>
+            	<pre style="margin-top: 20px;"><code contenteditable>function doWindowLoad()
+{
+  // Configure socket
+  socket = new air.XMLSocket();
+  socket.addEventListener( air.DataEvent.DATA, 
+    doSocketData );
+  socket.connect( LOCALHOST, PORT );	
+		
+  // Layout
+  doWindowResize();	
+}
+
+function doSocketData( evt )
+{
+  var reading = null
+
+  // Display
+  reading = document.querySelector( '#reading' );
+  reading.innerHTML = evt.data.toString();
+	
+  // Layout
+  doWindowResize();
+}</code></pre>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<img src="img/air-led.jpg" width="526" height="273" style="margin-top: 130px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<pre style="margin-top: -20px;"><code contenteditable>function doWindowLoad()
+{
+  // Configure socket
+  socket = new air.Socket();
+  socket.addEventListener( air.Event.CONNECT, 
+    doSocketConnect );
+  socket.addEventListener( air.Event.CLOSE, 
+    doSocketClose );
+  socket.connect( LOCALHOST, PORT );	
+		
+  // Layout
+  doWindowResize();	
+} 
+
+// Called when the arcade button is pressed
+// Writes an integer to turn on LED
+function doButtonDown()
+{
+  socket.writeInt( 49 );
+}
+
+// Called when the arcade button is released
+// Writes an integer to turn off LED
+function doButtonUp()
+{
+  socket.writeInt( 48 );
+}</code></pre>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<a href="http://www.instructables.com/id/Arduino-RC-Lawnmower" target="_blank">
+            	<img src="img/lawnmower.jpg" width="500" height="375" style="margin-top: 80px; -webkit-transform: rotate( -5deg );">
+            	</a>
+            </section>
+            <section>
+            	<a href="http://www.youtube.com/watch?v=LDzHwy28kng" target="_blank">
+            	<img src="img/combine.jpg" width="520" height="391" style="margin-top: 85px; -webkit-transform: rotate( 5deg );">
+            	</a>
+            </section>
+        </section>
+        <section>
+        	<section>
+            	<img src="img/ethernet.jpg" width="600" height="600" style="margin-top: 0px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<img src="img/thingspeak.jpg" width="600" height="455" style="margin-top: 60px; border: none; box-shadow: none;">
+            </section>
+            <section>
+            	<pre style="margin-top: 10px;"><code contenteditable>// If we can connect to the remote server
+// Send an HTTP POST containing the sensor data
+if( client.connect( "api.thingspeak.com", 80 ) )
+{ 
+  // Connection to the remote server has been made
+  // Serial.println( "Connected." );
+        
+  // HTTP POST containing sensor data  
+  client.print( "POST /update HTTP/1.1\n" );
+  client.print( "Host: api.thingspeak.com\n" );
+  client.print( "Connection: close\n" );
+  client.print( "X-THINGSPEAKAPIKEY: 3O1D1RNNBD2TFQSQ\n" );
+  client.print( 
+    "Content-Type: application/x-www-form-urlencoded\n" 
+  );
+  client.print( "Content-Length: " );
+  client.print( content.length() );
+  client.print( "\n\n" );
+  client.print( content );
+  client.print( "\n" );
+  
+  // Note the time we last made a connection
+  lastConnectionTime = millis();
+}</code></pre>
+            </section>
+            <section>
+            	<a href="http://www.youtube.com/watch?v=2pj8FHxzFvI" target="_blank">
+            	<img src="img/android-beer.jpg" width="600" height="375" style="margin-top: 80px; -webkit-transform: rotate( -5deg );">
+            	</a>
+            </section>
+        </section>
+    	<section>
+        	<img src="img/cardboard-box.jpg" width="500" height="455" style="padding-top: 50px; border: none; background: none; box-shadow: none;">
+        </section>              
+    </div>
+	<aside class="controls">
+		<a class="left" href="#">&#x25C4;</a>
+		<a class="right" href="#">&#x25BA;</a>
+		<a class="up" href="#">&#x25B2;</a>
+		<a class="down" href="#">&#x25BC;</a>
+	</aside>
+	<div class="progress"><span></span></div>    
+</div>
+
+<a href="http://html.adobe.com/events">
+<div class="adobe">
+	<img src="../img/adobe-logo.png" width="30" height="40">
+</div>
+</a>
+
+<!--
+<div class="social">#gettingmaker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@krhoyt</div>
+-->
+
+<script src="../revealjs/lib/js/head.min.js"></script>
+<script src="../revealjs/js/reveal.min.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize( {
+	controls: true,
+	progress: true,
+	history: true,
+	// default/cube/page/concave/linear(2d)
+	transition: Reveal.getQueryHash().transition || 'default', 
+	
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: '../revealjs/lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+		{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: '../revealjs/lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+		{ src: '../revealjs/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+	]
+} );
+</script>
+
+</body>
+</html>

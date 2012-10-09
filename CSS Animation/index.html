@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Animation, animation and more web animation.">
+<meta name="author" content="Kevin Hoyt">
+
+<title>CSS Animation</title>
+
+<link rel="stylesheet" href="../revealjs/css/main.css">
+<link rel="stylesheet" href="../revealjs/css/theme/default.css">
+<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+<link rel="stylesheet" href="../style/custom.css">
+
+</head>
+<body>
+
+<div class="reveal">
+	<div class="slides">
+    	<section>
+        	<h1 style="margin-top: 150px; text-transform: none;">CSS Animation</h1>
+            <h2>with Kevin Hoyt</h2>
+        </section>
+    	<section>
+        	<h2 style="margin-bottom: 50px; text-transform: none;">Designer or Developer?</h2>
+            <img src="img/tight-kern.png" width="338" height="320" style="background-color: #FFF;">
+            <img src="img/10-types.png" width="240" height="320" style="background-color: #FFF; padding-left: 49px; padding-right: 49px;">
+        </section>        
+        <section>
+        	<h2 style="margin-bottom: 80px; text-transform: none;">setInterval()</h2>
+			<pre><code contenteditable>
+// Do something every 500 milliseconds
+// Capture reference to cancel later
+var interval = setInterval( doSomething, 500 );
+
+// Called to do something
+function doSomething()
+{
+  // Gets a reference to the thing to move
+  var toMove = document.querySelector( '#thing' );
+
+  // Move the thing five more pixels across the screen
+  toMove.style.left = ( toMove.offsetLeft + 5 ) + 'px';
+}                        
+			</code></pre>
+        </section>
+		<section>
+        	<h2 style="margin-bottom: 40px; text-transform: none;">requestAnimationFrame()</h2>
+			<pre><code contenteditable>
+// What time is it now?
+var start = Date.now();
+
+// Start animating something
+requestAnimationFrame( doMoveIt );
+
+function doMoveIt( timestamp )
+{
+  // What is supposed to move?
+  var toMove = document.querySelector( '#thing' );
+
+  // Where are you supposed to be now?
+  // Based on time passed at next refresh
+  toMove.style.left = someValue + 'px';
+  
+  // Keep the action going
+  requestAnimationFrame( doMoveIt );
+}
+			</code></pre>
+		</section>   
+        <section>
+        	<h2 style="margin-bottom: 80px; text-transform: none;">GreenSock Animation Platform</h2>
+				<pre><code contenteditable>
+// Get a reference to the thing to move
+var thing = document.querySelector( '#thing' );
+
+TweenLite.to( 
+  thing,                     // What to move
+  2, {                       // Duration in seconds
+    css: {
+      left: '500px'	     // Property to change
+    }, 
+    ease: Cubic.easeInOut    // Easing
+  }
+);	            
+			</code></pre>
+        </section>   
+        <section>
+        	<h2 style="margin-bottom: 100px; text-transform: none;">Patterns Emerge</h2>
+            <ul>
+				<li>What is going to be animated?</li>
+				<li>How long will the animation last?</li>
+				<li>Will there be any easing in use?</li>
+				<li>Will there be a delay before starting?</li>
+                <li>Notification at points along the animation?</li>
+			</ul>
+        </section>          
+        <section>
+        	<section>
+        		<h2 style="margin-bottom: 60px; text-transform: none;">CSS Transitions</h2>
+                <p style="margin-bottom: 40px;">Define the animation in your CSS...</p>				
+                <pre><code contenteditable>       
+.myThing {
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    
+    /* Property, duration, easing, delay */
+    -moz-transition: left 2s ease-in-out;
+    -o-transition: left 2s ease-in-out;        
+    -webkit-transition: left 2s ease-in-out;
+    transition: left 2s ease-in-out;
+}
+				</code></pre>
+			</section>
+            <section>
+            	<h2 style="margin-bottom: 60px; text-transform: none;">CSS Transitions</h2>
+                <p style="margin-bottom: 40px;">Change the style using JavaScript...</p> 
+                <pre><code contenteditable>
+// Get a reference to what you want to animate
+var thing = document.querySelector( '#thing' );
+
+// Set the style value
+// The rest happen automagically
+thing.style.left = '500px';        
+				</code></pre>
+        	</section>
+            <section>
+            	<h2 style="margin-bottom: 35px; text-transform: none;">CSS Transitions</h2> 
+                <pre><code contenteditable>
+// Event name differs per browser
+// Add repeatedly to catch them all
+thing.addEventListener( 'transitionend', doEnd );	
+				</code></pre>
+				<pre><code contenteditable>
+// Called when the transition ends
+// Cleans up the existing animation
+// Might in turn perform another animation
+function doEnd()
+{
+  var thing = document.querySelector( '#thing' );
+ 
+  // Clean up event listener  
+  thing.removeEventListener( 'transitionend', doEnd );
+
+  // Go do more stuff ... or not
+} 
+				</code></pre>
+        	</section> 
+        </section>
+        <section>
+        	<section>
+				<h2 style="margin-bottom: 50px; text-transform: none;">CSS Animation</h2>
+                <pre><code contenteditable>
+@-webkit-keyframes across {
+  from {
+    left: 0px;
+    top: 0px;
+  }
+  
+  50% {
+    left: 100px;
+    top: 300px;  
+  }
+  
+  to {
+    left: 500px;
+    top: 0px;
+  }  
+}
+                </code></pre>
+            </section>
+            <section>
+            	<h2 style="margin-bottom: 40px; text-transform: none;">CSS Animation</h2>
+                <p style="margin-bottom: 40px;">Apply the animation using JavaScript...</p>
+                <pre><code contenteditable>
+var thing = document.querySelector( '#thing' );
+
+/* 
+  animation name, duration, 
+  easing, delay, repeat, options 
+*/
+thing.style.MozAnimation = 
+  'across 4s ease-in-out 0s 5 alternate';
+thing.style.oAnimation = 
+  'across 4s ease-in-out 0s 5 alternate';  
+thing.style.webkitAnimation = 
+  'across 4s ease-in-out 0s 5 alternate';	
+                </code></pre>
+            </section>
+            <section>
+            	<h2 style="margin-bottom: 40px; text-transform: none;">CSS Animation</h2>
+                <p style="margin-bottom: 40px;">Listen for events if you need them...</p>
+                <pre><code contenteditable>
+// Firefox
+thing.addEventListener( 'animationstart', doStart );
+thing.addEventListener( 'animationiteration', doStep );
+thing.addEventListener( 'animationend', doEnd );
+	
+// WebKit
+thing.addEventListener( 'webkitAnimationStart', 
+  doStart );
+thing.addEventListener( 'webkitAnimationIteration', 
+  doStep );	
+thing.addEventListener( 'webkitAnimationEnd', 
+  doEnd );                
+                </code></pre>
+            </section>
+        </section>
+        <section>
+        	<section>
+        		<h2 style="margin-bottom: 30px; text-transform: none;">Demonstrations</h2>
+            	<a href="http://playground:8888/css/jacks/jacks.html"><img src="img/jacks.jpg" width="600" height="384"></a>       
+            </section>
+            <section>
+        		<h2 style="margin-bottom: 30px; text-transform: none;">Demonstrations</h2>            
+                <a href="http://playground:8888/css/spelling/spelling.html"><img src="img/spelling.jpg" width="600" height="384"></a>    
+            </section>
+        </section>
+        <section>
+        	<section>
+                <h2 style="margin-bottom: 100px; text-transform: none;">Creativity and the Web</h2>
+                <ul>
+                    <li>Web standards are evolving at a rapid pace</li>
+                    <li class="fragment">Standards are being implemented almost as fast</li>
+                    <li class="fragment">Many of those standards are useful, but boring</li>
+ 					<li class="fragment">Many moving technology and standards pieces</li>
+                    <li class="fragment">Adobe brings a creative perspective to the table</li>
+                </ul>            
+            </section>
+            <section>
+            	<h1 style="margin-top: 210px;">Create the web!</h1>
+            </section>
+        </section>
+    </div>
+	<aside class="controls">
+		<a class="left" href="#">&#x25C4;</a>
+		<a class="right" href="#">&#x25BA;</a>
+		<a class="up" href="#">&#x25B2;</a>
+		<a class="down" href="#">&#x25BC;</a>
+	</aside>
+	<div class="progress"><span></span></div>    
+</div>
+
+<a href="http://html.adobe.com/events">
+<div class="adobe">
+	<img src="../img/adobe-logo.png" width="30" height="40">
+</div>
+</a>
+
+<div class="social">#createtheweb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@krhoyt</div>
+
+<script src="../revealjs/lib/js/head.min.js"></script>
+<script src="../revealjs/js/reveal.min.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize( {
+	controls: true,
+	progress: true,
+	history: true,
+	// default/cube/page/concave/linear(2d)
+	transition: Reveal.getQueryHash().transition || 'default', 
+	
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: '../revealjs/lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+		{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: '../revealjs/lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+		{ src: '../revealjs/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+	]
+} );
+</script>
+
+</body>
+</html>

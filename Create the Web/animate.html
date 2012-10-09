@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Introducing Adobe Edge Animate.">
+<meta name="author" content="Kevin Hoyt">
+
+<title>Adobe Edge Animate</title>
+
+<link rel="stylesheet" href="../revealjs/css/main.css">
+<link rel="stylesheet" href="../revealjs/css/theme/default.css">
+<link rel="stylesheet" href="../revealjs/lib/css/zenburn.css">
+
+<link rel="stylesheet" href="../style/custom.css">
+
+</head>
+<body>
+
+<div class="reveal">
+	<div class="slides">
+    	<section>
+        	<h1 style="margin-top: 150px; text-transform: none;">Adobe Edge Animate</h1>
+            <h2>html.adobe.com</h2>
+        </section>
+    	<section>
+        	<h2 style="margin-bottom: 50px; text-transform: none;">Designer or Developer?</h2>
+            <img src="img/tight-kern.png" width="338" height="320" style="background-color: #FFF;">
+            <img src="img/10-types.png" width="240" height="320" style="background-color: #FFF; padding-left: 49px; padding-right: 49px;">
+        </section>        
+    </div>
+	<aside class="controls">
+		<a class="left" href="#">&#x25C4;</a>
+		<a class="right" href="#">&#x25BA;</a>
+		<a class="up" href="#">&#x25B2;</a>
+		<a class="down" href="#">&#x25BC;</a>
+	</aside>
+	<div class="progress"><span></span></div>    
+</div>
+
+<a href="http://html.adobe.com/events">
+<div class="adobe">
+	<img src="../img/adobe-logo.png" width="30" height="40">
+</div>
+</a>
+
+<div class="social">#createtheweb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@krhoyt</div>
+
+<script src="../revealjs/lib/js/head.min.js"></script>
+<script src="../revealjs/js/reveal.min.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize( {
+	controls: true,
+	progress: true,
+	history: true,
+	// default/cube/page/concave/linear(2d)
+	transition: Reveal.getQueryHash().transition || 'default', 
+	
+	// Optional libraries used to extend on reveal.js
+	dependencies: [
+		{ src: '../revealjs/lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+		{ src: '../revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: '../revealjs/lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '../revealjs/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+		{ src: '../revealjs/plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+	]
+} );
+</script>
+
+</body>
+</html>
