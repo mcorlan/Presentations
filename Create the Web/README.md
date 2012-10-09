@@ -31,7 +31,7 @@ Keynote
 - If you don't have a subscription, there's now a free tier that includes Edge
 - Now go forward and create the web
 
-Fonts
+Typekit and Adobe Edge Web Fonts
 
 - In 2011, Adobe acquired Typekit for Web Fonts - how is that going?
 - Twenty years ago, this is what the web looked like
@@ -58,3 +58,42 @@ Fonts
 - But we haven't stopped there - we have also signed an agreement with Monotype Imaging
 - That is more than 1,000 well-known fonts added to Typekit
 - In short - there is simply no reason to not start using Web Fonts today
+
+Adobe Edge Animate
+
+- Until 2010, Flash was synonymous with animation on the web, targeting mostly the desktop
+- The iPad and other mobile devices rapidly created a need for plug-in free interactive content
+- Fortunately, at the same time web standards were emerging for animating web content
+- Creating pixel-perfect animation is tedious, hand-coded and time consuming
+- A drawback with hand-coding is that you lose the benefit of visual authoring
+- Adobe saw the need to allow web designers to easily create animated content on the web
+- All these features and more
+- Looking at a spectrum of skills, from designers to developers, who can use Edge Animate?
+- There are a lot of roles in the industry that fit into this spectrum
+- And HTML content is not restricted just to the web
+- We are working on integration with the Digital Publishing Suite
+- Windows 8 developers can create desktop applications with web standards
+- You can even pair Edge Animate content with PhoneGap/Build and Reflow for smartphones
+- Let us dive into the tool and take a quick look at some of those features I mentioned
+- First let us import some content (an image of your selection)
+- You can also draw a DIV element and set CSS properties in the Properties panel
+- If you hover over the property tools, you will see the actual CSS being applied
+- Dropping down to the timeline, we can use the pin tool to enable auto-keyframing
+- With an animation created, there is a button for setting easing as well
+- When you're ready to preview your content, just hit Cmd+Enter (on Mac)
+- Edge Animate also allows you to create symbols from your content including the animation
+- You will find quick trigger snippets in the Properties panel
+- There is even a light weight editor you can use to see your code in the big picture
+- Hopping over to the browser, let us take a look at the generated source code
+- You will see that this is pretty spartan, and is injected mostly from JavaScript
+- Back in Edge Animate we can change the Publish Settings to "Static"
+- If we publish again, and look at the code now, you will see all the individual elements
+- These is great for SEO and accessibility which brings me to downleveling
+- You can take poster images of your content anywhere along the timeline
+- These can be used for browsers that don't support Edge Animate content
+- You might have also noticed over here that there are two type of preloaders
+- Immediate is the default, which loads animation content with the rest of the page
+- Polite is an option which effectively waits for the page content to load first
+- Moving to the other side of the tool we see the ability to use Web Fonts
+- Now you can take your interactive skills and content to the web with Edge Animate
+- Oh, and did we mention that it has an introductory price of FREE?
