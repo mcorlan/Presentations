@@ -1,0 +1,60 @@
+Keynote
+
+- Welcome to Create the Web
+- I am Kevin Hoyt and this is Terry Ryan
+- Today we're going to talk about web standards, expression and tools
+- In the past things were easy - one screen and two browsers
+- With device and browser explosion, we have a complexity explosion
+- Adobe has seen this first hand - CCM is built with web standards (responsive)
+- And we've been working on the W3C Working Groups and WebKit open source project
+- Our areas of focus have been advanced layout and cinematic and graphical effects
+- This isn't smoke and mirror - CSS Filters are in iOS6 today
+- To conquer this complexity, you need tools - and we make them
+- The modern web needs modern tools, and we've been working on that for over a year
+- We recently announced the Adobe Edge Creative Tools and Services
+- These are optimized for mobile, task focused, improve productivity
+- Adobe Edge Animate is for creating animation with browser content
+- Adobe Edge Inspect keeps content in sync across devices and more
+- Sometimes you want to deploy and application and for that there's PhoneGap
+- The PhoneGap SDK has seen immense success having been download over a million times
+- It is also used broadly by well known brands
+- Adobe PhoneGap Build allows you to package in the cloud - no IDE needed
+- We've been talking quietly about Brackets for a few months now
+- This web-centric code editor is available on GitHub
+- Adobe Edge Code is an Adobe distribution with hooks to Adobe services
+- With TypeKit we continue to work towards our goal of ubiquity for web fonts
+- With Adobe Edge Web Fonts, thanks to Google, you have no reason not to use them
+- Adobe Edge Reflow enables the delivery of responsive design
+- Altogether these represent Adobe Edge Tools and Services
+- You might be wondering, where do you get all this goodness?
+- You can get them now as part of your Creative Cloud subscription
+- If you don't have a subscription, there's now a free tier that includes Edge
+- Now go forward and create the web
+
+Fonts
+
+- In 2011, Adobe acquired Typekit for Web Fonts - how is that going?
+- Twenty years ago, this is what the web looked like
+- Along came the font tag which gave us rudimentary control
+- The addition of CSS gave us more control, but limited font options
+- Seed Conference in 2008 introduced the concept of downloadable fonts
+- The foundries were focused on licensing, which gave rise to Typekit
+- Now you can find Web Fonts in use across various types of content
+- From visually creative and high design, to traditional print media
+- Sites such as New York Times and The New Yorker
+- You can even find Web Fonts in use on traditional corporate sites
+- On the whole, 1.5 million web sites use Web Fonts, with over 8 billion views
+- And Typekit now includes more than 1,200 font families from 53 foundries
+- And now we are working with Google to take it even farther
+- Adobe Edge Web Fonts include over 500 open source and free fonts
+- Along with Google Web Fonts, this also inlcludes several Adobe originals
+- We have also introduced Source Sans Pro for use in open source projects
+- Source Sans Pro is itself open source and can be downloaded from Adobe's GitHub repository
+- For developers we are introducing Source Code Pro for use in your favorite IDE
+- Source Code Pro has been designed to avoid character confusion
+- No longer will you confused I, with l with the number 1
+- The same goes for the capital letter "O" and the number 0
+- Like Source San Pro, Source Code Pro can be downloaded from the Adobe GitHub repository
+- But we haven't stopped there - we have also signed an agreement with Monotype Imaging
+- That is more than 1,000 well-known fonts added to Typekit
+- In short - there is simply no reason to not start using Web Fonts today
